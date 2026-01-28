@@ -4,6 +4,9 @@ on:
     push:
         branches:
             - dev
+    pull_request:
+        branches:
+            - main
 
 jobs:
     ci_dev:
@@ -12,6 +15,12 @@ jobs:
             - name: Checkout do projeto
               uses: actions/checkout@v4
 
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+
             - name: Log de contexto
               run: |
                   echo "Repository: ${{github.repository}}"
@@ -19,13 +28,10 @@ jobs:
                   echo "Commit: ${{github.sha}}"
 
             - name: Instalando dependências
-              run: npm install
+              run: npm ci
 
             - name: Rodando testes
               run: npm run test
 
             - name: Build
               run: npm run build
-
-            - name: Iniciar
-              run: npm run start
