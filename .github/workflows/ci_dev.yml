@@ -1,0 +1,25 @@
+name: Aplicando CI/CD com codigo TS
+
+on:
+    push:
+        branches:
+            - dev
+
+jobs:
+    ci_dev:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout do projeto
+              uses: actions/checkout@v4
+
+            - name: Instalando dependências
+              run: npm install
+
+            - name: Rodando testes
+              run: npm run test
+
+            - name: Build
+              run: npm run build
+
+            - name: Iniciar
+              run: npm run start

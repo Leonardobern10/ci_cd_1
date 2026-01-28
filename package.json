@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx --watch src/index.ts",
     "start": "node dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,10 @@
   },
   "homepage": "https://github.com/Leonardobern10/ci_cd_1#readme",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.1.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
