@@ -15,6 +15,15 @@ jobs:
             - name: Listar os diretórios
               run: ls -la
 
+            - name: Exibindo o diretório atual
+              run: echo "${{github.path}}"
+
+            - name: Exibindo conteudo da pasta
+              run: |
+                  cd .github/workflows
+                  ls -ls
+                  cd ./
+
             - name: Log de contexto
               run: |
                   echo "Repo: ${{github.repository}}"
