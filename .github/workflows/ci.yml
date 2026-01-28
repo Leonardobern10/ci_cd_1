@@ -1,0 +1,22 @@
+name: Testando CI/CD com Github Actions
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    primeiro_test_sozinho:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout do projeto
+              uses: actions/checkout@v4
+
+            - name: Listar os diretórios
+              run: ls -la
+
+            - name: Log de contexto
+              run: |
+                  echo "Repo: ${{github.repository}}"
+                  echo "Branch: ${{github.ref_name}}"
+                  echo "Commit: ${{github.sha}}"
