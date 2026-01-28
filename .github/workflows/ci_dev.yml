@@ -12,6 +12,12 @@ jobs:
             - name: Checkout do projeto
               uses: actions/checkout@v4
 
+            - name: Log de contexto
+              run: |
+                  echo "Repository: ${{github.repository}}"
+                  echo "Branch: ${{github.ref_name}}"
+                  echo "Commit: ${{github.sha}}"
+
             - name: Instalando dependências
               run: npm install
 
