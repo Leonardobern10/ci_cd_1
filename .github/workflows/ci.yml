@@ -16,7 +16,7 @@ jobs:
               run: ls -la
 
             - name: Exibindo o diretório atual
-              run: echo "${{github.path}}"
+              run: echo "${{github.action_path}}"
 
             - name: Exibindo conteudo da pasta
               run: |
